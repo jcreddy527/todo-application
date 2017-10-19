@@ -1,0 +1,22 @@
+ <div class="container" >
+		Filter By: <select  class="btn btn-default dropdown-toggle" (change)="type($event)">
+                  <option value="" >All</option>
+                  <option value="Pending" >Pending</option>
+                  <option value="Progress" >Progress</option>
+                  <option value="Completed" >Completed</option>
+      </select> 
+</div>
+ <div class="container" >
+			<table class="table table-striped" *ngIf="tasklist && tasklist.length > 0 ">
+				<tr>
+					<th class="success">TaskId</th>
+					<th class="info">Task Title</th>
+					<th class="success">Status</th>
+				</tr>
+				<tr *ngFor="let task of tasklist| status: 'status' : stype ">
+					<td>{{task.taskId}}</td>
+					 <td>{{task.tittle}}</td>
+					<td>{{task.status}}</td>   
+				</tr>
+			</table>
+	    </div>

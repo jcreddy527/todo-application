@@ -1,0 +1,24 @@
+ <div class="container" >
+			<table class="table table-striped" *ngIf="tasklist && tasklist.length > 0 ">
+				<tr>
+					<th class="success">TaskId</th>
+					<th class="info">Task Title</th>
+					<th class="success">Status</th>
+          <th class="success">Update</th>
+          <th class="success">Delete</th>
+				</tr>
+				<tr *ngFor="let task of tasklist">
+					<td>{{task.taskId}}</td>
+					 <td>{{task.tittle}}</td>
+					<td>
+                <select  class="btn btn-default dropdown-toggle" (change)="statustype($event)">
+                  <option   [value]="Pending" >Pending</option>
+                  <option   [value]="Progress" >Progress</option>
+                  <option   [value]="Completed" >Completed</option>
+                </select>   
+           </td>
+          <td><button class="btn btn-default" (click)='utask(task)' >Update</button></td>
+          <td><button class="btn btn-default"  (click)='dtask(task.taskId)' >Delete</button></td>   
+				</tr>
+			</table>
+	    </div>
